@@ -179,7 +179,7 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-if os.environ['ENVIRONMENT'] == "DEVELOPMENT":
+if os.environ['ENVIRONMENT'] == "PRODUCTION":
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CORS_ORIGIN_WHITELIST = [
     f"{os.environ['FRONTEND_URL']}"
