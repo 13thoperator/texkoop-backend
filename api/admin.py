@@ -9,7 +9,7 @@ admin.site.site_url = 'https://www.texkoop-incoming.vercel.app'
 class WaitListResource(resources.ModelResource):
     class Meta:
         model = Waitlist
-        fields = ('email')
+        fields = ('name','role','email')
         
 
 class WaitlistAdmin(ImportExportModelAdmin):
