@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'cloudinary_storage',
     'cloudinary',
+    'import_export',
+    'rangefilter',
+
 
 ]
 SITE_ID =1
