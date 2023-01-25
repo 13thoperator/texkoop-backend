@@ -30,7 +30,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.up.railway.app', 'truebackend.texkoop.com']
+ALLOWED_HOSTS = ['.up.railway.app', 'truebackend.texkoop.com']
 
 
 # Application definition
@@ -190,7 +190,7 @@ CORS_ORIGIN_WHITELIST = [
 
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://texkoop-backend.up.railway.app','https://*.127.0.0.1', 'https://www.texkoop.com', 'https://truebackend.texkoop.com']
+CSRF_TRUSTED_ORIGINS = ['https://texkoop-backend.up.railway.app', 'https://www.texkoop.com', 'https://truebackend.texkoop.com']
 
 CKEDITOR_CONFIGS = {
     'default': {
