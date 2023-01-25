@@ -190,7 +190,7 @@ CORS_ORIGIN_WHITELIST = [
 
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://texkoop-backend.up.railway.app','https://*.127.0.0.1', 'https://www.texkoop.com']
+CSRF_TRUSTED_ORIGINS = ['https://texkoop-backend.up.railway.app','https://*.127.0.0.1', 'https://www.texkoop.com', 'https://truebackend.texkoop.com']
 
 CKEDITOR_CONFIGS = {
     'default': {
