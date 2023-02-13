@@ -130,7 +130,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-migrations/
+
 
 /static/assets/fontawesome/
 /static/images/
