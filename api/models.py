@@ -175,7 +175,7 @@ class Waitlist(models.Model):
     def __str__(self):
             return self.name    
 
-
+#app waitlist model
 class AppWaitlist(models.Model):
     
     name = models.CharField(max_length=200)
