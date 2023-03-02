@@ -13,5 +13,6 @@ urlpatterns = [
     path('api/articles/', articles, name='articles'),
     path('api/article/<slug:slug>/', article, name='article'),
      path('api/waitlist/', waitlist_create, name='waitlist'),
-     path('', homepage, name='homepage')
+     path('api/app-waitlist/', app_waitlist_create, name='app-waitlist'),
+     path('', homepage, name='homepage'),
 ]

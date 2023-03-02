@@ -8,16 +8,6 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 
-# class MailList(models.Model):
-    
-#     email = models.EmailField()
-#     date_subscribed = models.DateTimeField(auto_now_add=True)
-    
-
-#     def __str__(self):
-#         return self.email
-
-
 class FeaturedMessage(models.Model):
     title = models.CharField(max_length=1000)
     body = RichTextUploadingField()
@@ -47,11 +37,7 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     self.user =
-    #     super().save(*args, **kwargs)
-
-
+    
 class EnglishArticle(models.Model):
     author = models.ForeignKey(Author, related_name='author',on_delete=models.SET_NULL, null=True) 
     slug = models.SlugField()
@@ -79,14 +65,8 @@ class EnglishArticle(models.Model):
 
 
 class FrenchArticle(models.Model):
-    # author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True) 
-    # slug = models.SlugField()
     title = models.CharField(max_length=300)
     body = RichTextUploadingField(default='Empty Content')
-    # date_created = models.DateTimeField()
-    # published = models.BooleanField(default=False)
-    # image = models.ImageField(blank = True, null = True)
-    # reading_time = models.IntegerField()
     french_article = models.OneToOneField(
         EnglishArticle,
         related_name="french_article",
@@ -101,15 +81,7 @@ class FrenchArticle(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     # self.slug = re.sub(r"\s+", '-', self.title.lower())
-    #     # self.published = self.english_article.published
-        
-    #     # self.image = self.english_article.image
-    #     self.date_created = self.english_article.date_created
-    #     self.reading_time = self.english_article.reading_time
-    #     self.author = self.english_article.author
-    #     super().save(*args, **kwargs)
+    
 
 
 
@@ -163,26 +135,6 @@ class Partners(models.Model):
     class Meta:
         verbose_name_plural = 'Partners'   
     
-# class Clients(models.Model):
-#     APPROVAL_CHOICES = (
-#         ('pending', 'pending'),
-#         ('approved', 'approved'),
-#         ('disapproved', 'disapproved'),
-#     )
-#     first_name = models.CharField(max_length=200)
-#     last_name = models.CharField(max_length=200)
-#     company_name = models.CharField(max_length=400)
-#     email = models.EmailField()
-#     telephone_number = models.CharField(max_length=20)
-#     approval_status = models.CharField(
-#         'Approval Status',
-#         max_length=11,
-#         choices=APPROVAL_CHOICES,
-#         default='pending')
-#     date = models.DateTimeField(auto_now_add=True)   
-
-#     class Meta:
-#         verbose_name_plural = 'Clients'   
 
 
    
@@ -219,6 +171,21 @@ class Waitlist(models.Model):
 
     class Meta:
         verbose_name_plural = 'Waitlist'
+
+    def __str__(self):
+            return self.name    
+
+
+class AppWaitlist(models.Model):
+    
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    date = models.DateTimeField(auto_now_add=True)   
+    role = models.CharField(max_length=200, default="Individual")
+    
+
+    class Meta:
+        verbose_name_plural = 'App Waitlist'
 
     def __str__(self):
             return self.name    

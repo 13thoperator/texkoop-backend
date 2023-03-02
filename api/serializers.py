@@ -69,3 +69,9 @@ class WaitlistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Waitlist
         fields = ['name', 'email', 'role', ]
+
+
+class AppWaitlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppWaitlist
+        fields = ['name', 'email', 'role' ]

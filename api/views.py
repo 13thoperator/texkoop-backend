@@ -188,4 +188,30 @@ def waitlist_create(request):
        
         return Response({
             "success": False
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)       
+
+
+
+@api_view(['POST'])
+def app_waitlist_create(request):
+    try:
+        serializer = AppWaitlistSerializer(data=request.data)
+        if serializer.is_valid():
+            
+            serializer.save()
+            return Response({
+                "success": True 
+            }, status=status.HTTP_201_CREATED)
+
+        else:
+            
+            return Response({
+                "success": False
+            }, status=status.HTTP_400_BAD_REQUEST) 
+    except Exception as e:
+       
+        return Response({
+            "success": False
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)         
+
+

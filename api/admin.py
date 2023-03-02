@@ -19,7 +19,20 @@ class WaitlistAdmin(ImportExportModelAdmin):
     list_display = ('name', 'email', 'role', 'date')
 
     resource_classes = [WaitListResource]
-   
+
+#app waitlist
+class AppWaitListResource(resources.ModelResource):
+    class Meta:
+        model = AppWaitlist
+        fields = ('id','name','email','role')
+        
+
+class AppWaitlistAdmin(ImportExportModelAdmin):
+    
+    list_filter = [('date', DateTimeRangeFilter)]
+    list_display = ('name', 'email', 'date')
+
+    resource_classes = [AppWaitListResource]   
 
 #riders
 class RidersResource(resources.ModelResource):
@@ -124,6 +137,7 @@ class FeaturedMessageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Waitlist, WaitlistAdmin)
+admin.site.register(AppWaitlist, AppWaitlistAdmin)
 admin.site.register(Riders, RidersAdmin)
 admin.site.register(Partners, PartnerAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
