@@ -8,7 +8,7 @@ from rest_framework.pagination import PageNumberPagination
 from .paginations import *
 # Create your views here.
 
-
+#Chronos Dev
 def homepage(request):
     return redirect('/admin')
     
