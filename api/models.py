@@ -23,7 +23,7 @@ class FrenchFeaturedMessage(models.Model):
         blank=True,
         null=True,
         on_delete=models.CASCADE)
-    title = models.CharField(max_length=1000)
+    title = models.CharField(max_length=500)
     body = RichTextUploadingField()
     
 
@@ -40,8 +40,8 @@ class Author(models.Model):
     
 class EnglishArticle(models.Model):
     author = models.ForeignKey(Author, related_name='author',on_delete=models.SET_NULL, null=True) 
-    slug = models.SlugField()
-    title = models.CharField(max_length=300)
+    slug = models.SlugField(max_length=400)
+    title = models.CharField(max_length=400)
     body = RichTextUploadingField(default='Empty Content')
     date_created = models.DateField()
     published = models.BooleanField(default=False)
@@ -56,8 +56,9 @@ class EnglishArticle(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        
         title = self.title.lower()
-        x = ['@', '#', '?', "/", ".", ",", "&", "!","|","-","_"]
+        x = ['@', '#', '?', "/", ".", ",", "&", "!","|","-","_","'",":"]
         z ="".join(filter(lambda char: char not in x, title)) 
         self.slug = re.sub(r"\s+", '-', z)
         super().save(*args, **kwargs)
@@ -65,7 +66,7 @@ class EnglishArticle(models.Model):
 
 
 class FrenchArticle(models.Model):
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=400)
     body = RichTextUploadingField(default='Empty Content')
     french_article = models.OneToOneField(
         EnglishArticle,

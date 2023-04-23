@@ -95,10 +95,8 @@ class EnglishArticleAdmin(ImportExportModelAdmin):
     list_filter = ['author', ('date_created', DateTimeRangeFilter)]
     list_display = ['author', 'title']
     extra = 0
-
-      
-    resource_classes = [ArticleResource]    
-
+    resource_classes = [ArticleResource]   
+    
 class ExtendArticleAdmin(EnglishArticleAdmin):
     inlines = EnglishArticleAdmin.inlines + [FrenchArticleInline]
 
